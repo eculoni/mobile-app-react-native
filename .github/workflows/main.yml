@@ -1,0 +1,29 @@
+name: Mobile App React Native Build
+
+on:
+  push:
+    branches:
+      - 'mobile-app-react-native'
+  pull_request:
+    branches:
+      - 'mobile-app-react-native'
+    events:
+      - push
+  push_event:
+    branches:
+      - 'mobile-app-react-native'
+    events:
+      - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run echo
+        run: echo "Hello from GitHub Actions!"
+      - name: Build and test
+        run: |
+          npm run build
+          npm run test
